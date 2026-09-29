@@ -1,6 +1,6 @@
 {
   "name": "@diousk/pi-claude-bridge",
-  "version": "0.9.0",
+  "version": "0.9.1",
   "private": false,
   "description": "Pi extension that uses Claude Code as a model provider, adds AskClaude, and supports optional pi-warm-cache integration.",
   "keywords": [

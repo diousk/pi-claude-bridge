@@ -1,8 +1,8 @@
 # Changelog
 
-## UNRELEASED
+## 0.9.1 — 2026-09-29
 
-- **Add: pi-warm-cache adapter** — Optional session-scoped SDK fork warming, with real cache-TTL observation and isolated keepalive requests. Requires `@diousk/pi-warm-cache` 0.2.2 or newer.
+- **Add: pi-warm-cache adapter** — Optional session-scoped SDK fork warming, with real cache-TTL observation and isolated keepalive requests. Requires `@diousk/pi-warm-cache` 0.2.3 or newer.
 - **Bump: Claude Sonnet 5.5** — Should appear in `/model` with 1M context once pi-ai ships the new catalog entry. Agent SDK bumped to ^0.3.284 (Claude Code 2.1.284).
 
 ## 0.9.0 — 2026-09-27

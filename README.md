@@ -1,8 +1,10 @@
-# pi-claude-bridge
+# @diousk/pi-claude-bridge
 
-[![npm version](https://img.shields.io/npm/v/pi-claude-bridge)](https://www.npmjs.com/package/pi-claude-bridge)
+[![npm version](https://img.shields.io/npm/v/@diousk/pi-claude-bridge)](https://www.npmjs.com/package/@diousk/pi-claude-bridge)
 
 Pi extension that integrates Claude Code via the [Agent SDK](https://github.com/anthropics/claude-agent-sdk-typescript). Originally based on [claude-agent-sdk-pi](https://github.com/prateekmedia/claude-agent-sdk-pi) by Prateek Sunal.
+
+This is a fork of [elidickinson/pi-claude-bridge](https://github.com/elidickinson/pi-claude-bridge), retaining its MIT license and adding an optional cooperating adapter for [@diousk/pi-warm-cache](https://github.com/diousk/pi-warm-cache).
 
 1. **Provider** — Use Opus/Sonnet/Haiku as models in pi, with all tool calls flowing through pi's TUI
 2. **AskClaude tool** — Delegate tasks or questions to Claude Code when using another provider
@@ -18,10 +20,22 @@ Pi extension that integrates Claude Code via the [Agent SDK](https://github.com/
 ## Install
 
 ```
-pi install npm:pi-claude-bridge
+pi install npm:@diousk/pi-claude-bridge
+pi install npm:@diousk/pi-warm-cache
 ```
 
 Requires pi 0.86.1 or newer.
+
+### Prompt cache warming
+
+With both packages installed, `/warm on tools=all` enables cache warming for
+Claude bridge sessions. The adapter observes the cache-write TTL reported by
+Claude Code's Agent SDK and schedules 1-hour-only prefixes at about 50 minutes;
+5-minute, mixed, or unknown TTLs use at most 4 minutes. `/warm 5m` forces the
+short cadence. The adapter uses an isolated SDK session fork and never adds a
+warm message to pi's or Claude Code's active conversation. See the
+[warm-cache integration guide](https://github.com/diousk/pi-warm-cache/blob/main/integrations/claude-bridge.md)
+for its safety limits and live validation details.
 
 ## Provider
 
